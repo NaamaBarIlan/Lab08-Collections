@@ -46,6 +46,7 @@ namespace Lab08_Collections
                         OutputBooks();
 
                         break;
+                        /*
                     case "2":
                         Console.Clear();
                         Console.WriteLine("Please enter the following details: ");
@@ -55,6 +56,8 @@ namespace Lab08_Collections
                         Console.Write("Author First Name: ");
                         string firstName = Console.ReadLine();
                         Console.WriteLine();
+                        */
+
                     case "3":
                         Console.Clear();
 
