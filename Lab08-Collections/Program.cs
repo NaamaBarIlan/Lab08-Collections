@@ -123,7 +123,7 @@ namespace Lab08_Collections
             {
                 Title = "Pride and Prejudice",
                 Author = new Author() { FirstName = "Jane", LastName = "Austen" },
-                Genre = Genre.Comedy
+                Genre = Genre.Romance
             };
 
             Book b = new Book
