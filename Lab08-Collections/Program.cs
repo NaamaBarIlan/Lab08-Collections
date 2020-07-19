@@ -64,7 +64,11 @@ namespace Lab08_Collections
                         Console.WriteLine();
                         Console.Write("Author First Name: ");
                         string firstName = Console.ReadLine();
+                        Console.Write("Author Last Name: ");
+                        string lastName = Console.ReadLine();
+                        AddABook(title, firstName, lastName);
                         Console.WriteLine();
+                        break;
 
                     case "3":
                         Console.Clear();
@@ -107,20 +111,18 @@ namespace Lab08_Collections
         }
 
         /// <summary>
-        /// This method takes in the book data as four paramaters, three strings and an int,
+        /// This method takes in the book data as three string parameters,
         /// instantiates a new Book object and adds it to the Library object.
         /// </summary>
         /// <param name="title">The title of the book</param>
         /// <param name="firstName">The first name of the author of the book</param>
         /// <param name="lastName">The last name of the author of the book</param>
-        /// <param name="numberOfPages">The number of pages in the book</param>
-        static void AddABook(string title, string firstName, string lastName, int numberOfPages)
+        static void AddABook(string title, string firstName, string lastName)
         {
             Book book = new Book()
             {
                 Title = title,
                 Author = new Author() { FirstName = firstName, LastName = lastName },
-                NumberOfPages = numberOfPages,
                 Genre = Genre.Romance
             };
 
