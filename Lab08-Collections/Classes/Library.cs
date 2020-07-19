@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lab08_Collections.Classes
 {
-    class Library<T> : IEnumerable
+    public class Library<T> : IEnumerable
     {
         T[] inventory = new T[10];
         int count = 0;
