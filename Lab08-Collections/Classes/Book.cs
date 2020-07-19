@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lab08_Collections.Classes
 {
-    class Book
+    public class Book
     {
         public string Title { get; set; }
 
@@ -14,9 +14,10 @@ namespace Lab08_Collections.Classes
         public Author Author { get; set; }
 
         public Genre Genre { get; set; }
+
     }
 
-    enum Genre
+    public enum Genre
     {
         Romance, 
         Drama,

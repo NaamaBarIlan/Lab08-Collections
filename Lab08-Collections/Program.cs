@@ -11,6 +11,11 @@ namespace Lab08_Collections
 
         public static List<Book> BookBag { get; set; }
 
+        /// <summary>
+        /// This Main method creates a new Library object and List object
+        /// and calls the LoadBooks and UserInterface methods.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Library = new Library<Book>();
@@ -20,6 +25,10 @@ namespace Lab08_Collections
             UserInterface();
         }
 
+        /// <summary>
+        /// This method is the user interface of the application
+        /// It uses a switch statement to call the relevant methods for each operation
+        /// </summary>
         static void UserInterface()
         {
             bool exit = false;
@@ -46,7 +55,7 @@ namespace Lab08_Collections
                         OutputBooks();
 
                         break;
-                        /*
+
                     case "2":
                         Console.Clear();
                         Console.WriteLine("Please enter the following details: ");
@@ -55,8 +64,11 @@ namespace Lab08_Collections
                         Console.WriteLine();
                         Console.Write("Author First Name: ");
                         string firstName = Console.ReadLine();
+                        Console.Write("Author Last Name: ");
+                        string lastName = Console.ReadLine();
+                        AddABook(title, firstName, lastName);
                         Console.WriteLine();
-                        */
+                        break;
 
                     case "3":
                         Console.Clear();
@@ -98,19 +110,30 @@ namespace Lab08_Collections
             }
         }
 
-        static void AddABook(string title, string firstName, string lastName, int numberOfPages)
+        /// <summary>
+        /// This method takes in the book data as three string parameters,
+        /// instantiates a new Book object and adds it to the Library object.
+        /// </summary>
+        /// <param name="title">The title of the book</param>
+        /// <param name="firstName">The first name of the author of the book</param>
+        /// <param name="lastName">The last name of the author of the book</param>
+        static void AddABook(string title, string firstName, string lastName)
         {
             Book book = new Book()
             {
                 Title = title,
                 Author = new Author() { FirstName = firstName, LastName = lastName },
-                NumberOfPages = numberOfPages,
                 Genre = Genre.Romance
             };
 
             Library.Add(book);
         }
 
+        /// <summary>
+        /// This method handles the book output process
+        /// Which displays all the books to the user in 
+        /// menu option 1 of the userInterface method. 
+        /// </summary>
         static void OutputBooks()
         {
             int counter = 1;
@@ -120,6 +143,10 @@ namespace Lab08_Collections
             }
         }
 
+        /// <summary>
+        /// This method handles the book loading process
+        /// that is used to display all of the Library books to the user. 
+        /// </summary>
         static void LoadBooks()
         {
             Book a = new Book
@@ -165,6 +192,11 @@ namespace Lab08_Collections
 
         }
 
+        /// <summary>
+        /// This method handles the book returning process. 
+        /// It prompts the user for a book number, then removes that book object
+        /// from the BookBag and adds it to the Library collection.
+        /// </summary>
         static void ReturnBook()
         {
             Dictionary<int, Book> books = new Dictionary<int, Book>();
@@ -183,6 +215,13 @@ namespace Lab08_Collections
             Library.Add(returnedBook);
         }
 
+        /// <summary>
+        /// This method handles the book borrowing process. 
+        /// It takes in a book title string as a parameter,
+        /// iterates through the Library until it finds the same title and returns the book item
+        /// </summary>
+        /// <param name="title">A string, the title of the book that is being borrowed</param>
+        /// <returns>The borrowed Book object</returns>
         public static Book Borrow(string title)
         {
             Book borrowedBook = null;

@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Lab08_Collections.Classes
 {
-    class Library<T> : IEnumerable
+    public class Library<T> : IEnumerable
     {
         T[] inventory = new T[10];
         int count = 0;
 
         /// <summary>
-        /// Add a new item to the Library List
+        /// This method takes a book value and adds it as a new item to the Library List.
         /// </summary>
         /// <param name="book">The new object that needs to be added to the list</param>
         public void Add(T book)
@@ -24,6 +24,12 @@ namespace Lab08_Collections.Classes
             inventory[count++] = book;
         }
 
+        /// <summary>
+        /// This method takes a book value as a parameter 
+        /// and remove the item from the Library List.
+        /// </summary>
+        /// <param name="item">The book object that needs to be removed from the list</param>
+        /// <returns>The removed book object</returns>
         public T Remove(T item)
         {
             int quarter = count - 1;
@@ -33,8 +39,10 @@ namespace Lab08_Collections.Classes
 
             if (IsAvailable(item))
             {
+                // if count is less than half, them resize the array:
                 if(count < inventory.Length / 2)
                 {
+                    // resize the array to something much smaller and efficient:
                     temp = new T[quarter];
                 }
                 else
@@ -65,6 +73,10 @@ namespace Lab08_Collections.Classes
             return removedBook;
         }
 
+        /// <summary>
+        /// This method sets up a counter. 
+        /// </summary>
+        /// <returns>The count value</returns>
         public int Count()
         {
             return count;
@@ -89,6 +101,10 @@ namespace Lab08_Collections.Classes
             return false;
         }
 
+        /// <summary>
+        /// This method is required for implementing IEnumerable.
+        /// </summary>
+        /// <returns>The inventory iterator value</returns>
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < count; i++)
@@ -98,7 +114,10 @@ namespace Lab08_Collections.Classes
         }
 
         // Magic Don't Touch
-
+        /// <summary>
+        /// This method is required for implementing IEnumerable.
+        /// </summary>
+        /// <returns>The value from the GetEnumerator method</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
