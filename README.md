@@ -1,6 +1,6 @@
 # Console Application - Collections
 
-## Phil’s Lending Library
+## Philâ€™s Lending Library
 
 Lab08-Collections
 
@@ -48,6 +48,7 @@ Then select and open ```Lab08-Collections```
 
 ### Change Log
 
+1.2: *Fixed Add New Book option of the UserInterface method, added 5 unit tests and summary comments to all methods* - 19 Jul 2020
 1.1: *Credit - I used Amanda Iverson's solution to help me understand the problem domain for this initial version of the application* - 15 Jul 2020.
 
 
